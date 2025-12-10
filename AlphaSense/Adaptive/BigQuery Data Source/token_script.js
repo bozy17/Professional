@@ -249,8 +249,8 @@ if(typeof KJUR=="undefined"||!KJUR){KJUR={}}if(typeof KJUR.jws=="undefined"||!KJ
  ****************************************************************************/
  
 var GOOGLE_OAUTH = 'https://www.googleapis.com/oauth2/v4/token';
-var client_email = /Use email from bigquery service account/; 
-var private_key = /Use private key generated with bigquery service account/'-----BEGIN PRIVATE KEY-----\ninsert private key here\n-----END PRIVATE KEY-----\n';
+var client_email = //Use email from bigquery service account/; 
+var private_key = //Use private key generated with bigquery service account/'-----BEGIN PRIVATE KEY-----\ninsert private key here\n-----END PRIVATE KEY-----\n';
 var scope = 'https://www.googleapis.com/auth/bigquery';
 var accessToken = null;
  
