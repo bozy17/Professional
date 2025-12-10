@@ -1,0 +1,18 @@
+steps:
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud functions deploy sfdc-transfer-retry \
+          --gen2 \
+          --region=us-central1 \
+          --source=sfdc_daily_snapshots/data_transfer_retry \
+          --runtime=python313 \
+          --entry-point=retry_dts_failure_from_logs \
+          --trigger-topic=data_transfer_retry \
+          --retry \
+          --service-account=as-finance-430214@appspot.gserviceaccount.com \
+
+options:
+  logging: CLOUD_LOGGING_ONLY
