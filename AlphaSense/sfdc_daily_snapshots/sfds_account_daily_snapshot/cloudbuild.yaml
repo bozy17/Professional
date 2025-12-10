@@ -1,0 +1,18 @@
+steps:
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud functions deploy sfdc-account-snapshot \
+          --gen2 \
+          --region=us-central1 \
+          --source=sfdc_daily_snapshots/sfdc_account_daily_snapshot \
+          --runtime=python313 \
+          --entry-point=pubsub_to_bigquery_query \
+          --trigger-topic=sfdc_account \
+          --retry \
+          --service-account=as-finance-430214@appspot.gserviceaccount.com \
+
+options:
+  logging: CLOUD_LOGGING_ONLY
